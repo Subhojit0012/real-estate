@@ -12,7 +12,7 @@ export default function AnimatedTestimonialsDemo() {
         className="bg-blue-500 text-white p-4 rounded-lg shadow-lg flex flex-row justify-center items-center gap-2"
         initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        transition={{ duration: 0.7, ease: "easeInOut" }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
