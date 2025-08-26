@@ -48,12 +48,13 @@ export default function AnimatedTestimonialsDemo() {
           Contact Us
         </button>
       </nav>
-      <header className="relative w-full h-[70vh]">
+      <header className="relative w-full h-[85vh]">
         <Image
           src="/img/Hero.webp"
           alt="Hero Image"
           layout="fill"
           objectFit="cover"
+          loading="lazy"
           className="brightness-75"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
@@ -74,22 +75,26 @@ export default function AnimatedTestimonialsDemo() {
             What Our Clients Say
           </h2>
           <div className="relative w-full h-48 overflow-hidden">
-            <div
-              className="absolute top-0 left-0 w-full h-full flex transition-transform duration-500"
-              style={{
-                transform: `translateX(-${tests.indexOf(currentTest) * 100}%)`,
-              }}
-            >
-              {tests.map((test) => (
-                <div
-                  key={test}
-                  className="w-full flex-shrink-0 flex items-center justify-center px-4"
-                >
-                  <p className="text-lg italic text-gray-700">
-                    "{test} is an amazing place to live!"
+            <div className="flex justify-center items-center" style={{}}>
+              <div className="mx-auto flex gap-x-4 items-center justify-center rounded-xl bg-purple-400 py-4 px-7 max-w-sm outline outline-purple-700 dark:bg-blue-800 dark:outline-white/15">
+                <Image
+                  src={"/img/profile/client-1.webp"}
+                  height={70}
+                  width={70}
+                  alt="Client 1"
+                  className="object-fill rounded-full"
+                  loading="lazy"
+                />
+
+                <div className="">
+                  <h1 className="text-2xl font-medium dark:text-white/100 text-black">
+                    Chit Chat
+                  </h1>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    You have a new message!
                   </p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
           <div className="flex justify-center mt-4 space-x-2">
