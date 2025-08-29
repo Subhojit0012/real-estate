@@ -56,8 +56,6 @@ export default function AnimatedTestimonialsDemo() {
     },
   ];
 
-  const [currentTest, setCurrentTest] = React.useState(tests[0]);
-
   return (
     <div className="w-full h-screen max-w-7xl mx-auto">
       <nav className="w-full flex items-center justify-between p-4">
@@ -120,7 +118,7 @@ export default function AnimatedTestimonialsDemo() {
                     key={name}
                   >
                     <Image
-                      src={`/img/profile/${image}.webp`}
+                      src={`${image}`}
                       height={70}
                       width={70}
                       alt="Client 1"
