@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+
 export default function AnimatedTestimonialsDemo() {
   const tests = [
     "Home",
@@ -24,6 +25,34 @@ export default function AnimatedTestimonialsDemo() {
     {
       name: "Pricing",
       link: "#",
+    },
+  ];
+
+  const testimonial = [
+    {
+      name: "John Doe",
+      message: "This is the best real estate service I've ever used!",
+      image: "/img/profile/client-1.webp",
+    },
+    {
+      name: "Jane Smith",
+      message: "Finding my dream home was so easy with RealEstate.",
+      image: "/img/profile/client-2.webp",
+    },
+    {
+      name: "Mike Johnson",
+      message: "Highly recommend to anyone looking for properties.",
+      image: "/img/profile/client-3.webp",
+    },
+    {
+      name: "Emily Davis",
+      message: "A seamless experience from start to finish.",
+      image: "/img/profile/client-4.webp",
+    },
+    {
+      name: "David Wilson",
+      message: "Professional and trustworthy agents.",
+      image: "/img/profile/client-5.webp",
     },
   ];
 
@@ -74,41 +103,46 @@ export default function AnimatedTestimonialsDemo() {
           <h2 className="text-3xl font-bold mb-6 text-center">
             What Our Clients Say
           </h2>
-          <div className="relative w-full h-48 overflow-hidden">
-            <div className="flex justify-center items-center" style={{}}>
-              <div className="mx-auto flex gap-x-4 items-center justify-center rounded-xl bg-purple-400 py-4 px-7 max-w-sm outline outline-purple-700 dark:bg-blue-800 dark:outline-white/15">
-                <Image
-                  src={"/img/profile/client-1.webp"}
-                  height={70}
-                  width={70}
-                  alt="Client 1"
-                  className="object-fill rounded-full"
-                  loading="lazy"
-                />
+          <div className="relative w-full h-48 overflow-hidden bg-red-600">
+            <div
+              className="flex justify-center items-center border border-dotted absolute right-4 top-9 overflow-hidden"
+              style={{
+                animationName: "testimonial",
+                animationDuration: "6s",
+                animationIterationCount: "infinite",
+                animationTimingFunction: "ease-in",
+              }}
+            >
+              {testimonial.map(({ name, message, image }) => {
+                return (
+                  <div
+                    className="mx-auto flex gap-x-4 items-center justify-center rounded-xl bg-purple-400 py-4 px-7 max-w-sm outline outline-purple-700 dark:bg-gray-300 dark:outline-white/15"
+                    key={name}
+                  >
+                    <Image
+                      src={`/img/profile/${image}.webp`}
+                      height={70}
+                      width={70}
+                      alt="Client 1"
+                      className="object-fill rounded-full"
+                      loading="lazy"
+                    />
 
-                <div className="">
-                  <h1 className="text-2xl font-medium dark:text-white/100 text-black">
-                    Chit Chat
-                  </h1>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    You have a new message!
-                  </p>
-                </div>
-              </div>
+                    <div>
+                      <h1 className="text-2xl font-medium dark:text-gray-900 text-black">
+                        {name}
+                      </h1>
+                      <p className="text-gray-500 dark:text-gray-700">
+                        {message}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
-          <div className="flex justify-center mt-4 space-x-2">
-            {tests.map((test) => (
-              <button
-                key={test}
-                onClick={() => setCurrentTest(test)}
-                className={`w-3 h-3 rounded-full ${
-                  currentTest === test ? "bg-blue-600" : "bg-gray-300"
-                }`}
-              />
-            ))}
-          </div>
         </section>
+
         <section>
           <h2 className="text-3xl font-bold mb-6 text-center">
             Explore Our Properties
