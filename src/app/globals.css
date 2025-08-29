@@ -12,4 +12,14 @@
   }
 
   --color-mint-500: oklch(0.72 0.11 178);
+
 }
+
+@keyframes testimonial {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
